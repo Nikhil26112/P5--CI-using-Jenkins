@@ -34,10 +34,11 @@
 - Fast turn around on feature changes
 - Less disruptive
 
-### Architecture 
+### Architecture
 
-![1676467397550](https://file+.vscode-resource.vscode-cdn.net/home/nikhil/Desktop/20_Projects/Project5/P5--CI-using-Jenkins/image/README/1676467397550.png)
-
+```
+![Screenshot](image.png)
+```
 
 The developer makes a code change and commits to a version control system or source code manager. An automation tool will automatically fetch that code, build it, run a unit test, and return the outcome on the Slack channel. In the next phase, it will run core analysis and core analysis. There will be quality gates. If it is not passing the threshold cap, then it's good. If it passes the threshold, a notification will be sent to the Slack channel. If this is good, it goes to the next level. Then the software will be built, it will be packaged and the artifact will be uploaded and its outcome notification will also be sent. The artifact or the software will be stored in the artifact repository. If all these stages are successful, then the software can be promoted to the next level. If there is any failure, the notification will be sent anyways. Once the developer receives the notification for any failure, they will make the code change, they'll make the fix and the process repeats again. So there will be regular code commits, and continuous code commits, and this process will run continuously.
 
