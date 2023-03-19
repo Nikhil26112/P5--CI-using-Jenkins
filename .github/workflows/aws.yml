@@ -8,9 +8,9 @@ on:
 env:
   AWS_REGION: us-east-1
   IMAGE_NAME: vprofileappimgpvt
-  ECS_CLUSTER: vprofileappcluster
-  ECS_SERVICE: vprofileappsvc
-  ECS_TASK_FAMILY: vprofileapptaskdef
+  ECS_CLUSTER: vprofileappcluster2
+  ECS_SERVICE: vprofileappsvc2
+  ECS_TASK_FAMILY: vprofileapptaskdef2
 
 jobs:
   deploy:
@@ -22,17 +22,17 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: AKIA3HNJH2RDT2JIUVP6
-          aws-secret-access-key: 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
+          aws-access-key-id: AKIASU2YBZ76XU2C3TMK
+          aws-secret-access-key: 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
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Build Docker image
-        run: docker build -t 771838432327.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME .
+        run: docker build -t 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME .
 
       - name: Push Docker image to ECR
         run: |
-          docker tag $IMAGE_NAME 771838432327.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
-          docker push 771838432327.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
+          docker tag $IMAGE_NAME 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
+          docker push 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
 
       - name: Deploy to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
@@ -40,4 +40,4 @@ jobs:
           cluster: $ECS_CLUSTER
           service: $ECS_SERVICE
           family: $ECS_TASK_FAMILY
-          image: 771838432327.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
+          image: 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
