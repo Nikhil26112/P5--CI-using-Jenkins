@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
           cluster: vprofileappcluster2
           service: vprofileappsvc2
-          task-definition: vprofileapptaskdef2
           image: 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
