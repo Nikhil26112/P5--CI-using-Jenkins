@@ -38,5 +38,5 @@ jobs:
         with:
           cluster: vprofileappcluster2
           service: vprofileappsvc2
-          family: vprofileapptaskdef2
+          task-definition: vprofileapptaskdef2
           image: 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
