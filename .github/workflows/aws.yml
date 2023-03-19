@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  IMAGE_NAME: vprofileappimgpvt:latest
+  IMAGE_NAME: vprofileappimgpvt
   ECS_CLUSTER: vprofileappcluster2
   ECS_SERVICE: vprofileappsvc2
   ECS_TASK_FAMILY: vprofileapptaskdef2
