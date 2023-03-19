@@ -39,7 +39,7 @@ jobs:
         with:
           task-definition: task-definition.json
           container-name: vprofileappimgpvt
-          image: ${{ steps.build-image.outputs.image }}
+          image: 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
 
       - name: Deploy to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
