@@ -33,18 +33,19 @@ jobs:
           aws ecr --region us-east-1 | docker login -u AWS -p $AUTH_TOKEN 182183907325.dkr.ecr.us-east-1.amazonaws.com/vprofileappimgpvt
           docker tag 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
           docker push 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
+      
       # - name: Fill in the new image ID in the Amazon ECS task definition
       #   id: new-task-def
       #   uses: aws-actions/amazon-ecs-render-task-definition@v1
       #   with:
-      #     task-definition: vprofileapptaskdef2
+      #     task-definition: task-definition.json
       #     container-name: vprofileappimgpvt
       #     image: 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
 
       - name: Deploy to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: vprofileapptaskdef2
+          task-definition: task-definition.json
           cluster: vprofileappcluster2
           service: vprofileappsvc2
           image: 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
