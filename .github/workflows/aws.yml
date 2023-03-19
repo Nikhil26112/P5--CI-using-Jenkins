@@ -1,0 +1,43 @@
+name: Deploy to ECS
+
+on:
+  push:
+    branches:
+      - cicd-jenkins
+
+env:
+  AWS_REGION: us-east-1
+  IMAGE_NAME: 771838432327.dkr.ecr.us-east-1.amazonaws.com/vprofileappimg
+  ECS_CLUSTER: vprostaging
+  ECS_SERVICE: vproappstagesvc2611
+  ECS_TASK_FAMILY: vproappstagetask
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: AKIA3HNJH2RDTDE3JIW2
+          aws-secret-access-key: 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
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Build Docker image
+        run: docker build -t $IMAGE_NAME .
+
+      - name: Push Docker image to ECR
+        run: |
+          docker tag vproapp vproapp
+          docker push $IMAGE_NAME
+
+      - name: Deploy to ECS
+        uses: aws-actions/amazon-ecs-deploy-task@v1
+        with:
+          cluster: $ECS_CLUSTER
+          service: $ECS_SERVICE
+          family: $ECS_TASK_FAMILY
+          image: $IMAGE_NAME
