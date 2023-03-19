@@ -35,7 +35,7 @@ jobs:
           docker push $IMAGE_NAME
 
       - name: Deploy to ECS
-        uses: aws-actions/amazon-ecs-deploy-task@v1
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           cluster: $ECS_CLUSTER
           service: $ECS_SERVICE
