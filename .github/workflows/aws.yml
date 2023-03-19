@@ -7,10 +7,10 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  IMAGE_NAME: vprofileappimg
-  ECS_CLUSTER: vprostaging
-  ECS_SERVICE: vproappstagesvc2611
-  ECS_TASK_FAMILY: vproappstagetask
+  IMAGE_NAME: vprofileappimgpvt
+  ECS_CLUSTER: vprofileappcluster
+  ECS_SERVICE: vprofileappsvc
+  ECS_TASK_FAMILY: vprofileapptaskdef
 
 jobs:
   deploy:
