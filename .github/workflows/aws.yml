@@ -31,7 +31,7 @@ jobs:
 
       - name: Push Docker image to ECR
         run: |
-          docker tag 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
+          docker tag nikhil2611/vprofileappimgpvt:latest 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
           docker push 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
 
       - name: Deploy to ECS
