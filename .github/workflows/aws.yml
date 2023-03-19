@@ -27,11 +27,11 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Build Docker image
-        run: docker build -t 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME:latest .
+        run: docker build -t 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME .
 
       - name: Push Docker image to ECR
         run: |
-          docker tag $IMAGE_NAME 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
+          docker tag 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
           docker push 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
 
       - name: Deploy to ECS
