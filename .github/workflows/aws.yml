@@ -27,7 +27,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Build Docker image
-        run: docker build -t 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME .
+        run: docker build -t 182183907325.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME:latest .
 
       - name: Push Docker image to ECR
         run: |
