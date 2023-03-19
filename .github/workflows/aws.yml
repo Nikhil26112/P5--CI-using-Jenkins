@@ -22,8 +22,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: AKIA3HNJH2RDTDE3JIW2
-          aws-secret-access-key: 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
+          aws-access-key-id: AKIA3HNJH2RDT2JIUVP6
+          aws-secret-access-key: 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
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Build Docker image
