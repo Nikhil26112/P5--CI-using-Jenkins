@@ -31,7 +31,7 @@ jobs:
 
       - name: Push Docker image to ECR
         run: |
-          docker tag vproapp vproapp
+          docker tag $IMAGE_NAME $IMAGE_NAME
           docker push $IMAGE_NAME
 
       - name: Deploy to ECS
