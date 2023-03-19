@@ -31,7 +31,7 @@ jobs:
 
       - name: Push Docker image to ECR
         run: |
-          docker tag $IMAGE_NAME $IMAGE_NAME
+          docker tag $IMAGE_NAME $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_NAME
           docker push $IMAGE_NAME
 
       - name: Deploy to ECS
