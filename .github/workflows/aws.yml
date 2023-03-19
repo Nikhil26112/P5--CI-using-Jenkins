@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  IMAGE_NAME: 771838432327.dkr.ecr.us-east-1.amazonaws.com/vprofileappimg
+  IMAGE_NAME: vprofileappimg
   ECS_CLUSTER: vprostaging
   ECS_SERVICE: vproappstagesvc2611
   ECS_TASK_FAMILY: vproappstagetask
@@ -27,12 +27,12 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Build Docker image
-        run: docker build -t $IMAGE_NAME .
+        run: docker build -t 771838432327.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME .
 
       - name: Push Docker image to ECR
         run: |
-          docker tag $IMAGE_NAME $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_NAME
-          docker push $IMAGE_NAME
+          docker tag $IMAGE_NAME 771838432327.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
+          docker push 771838432327.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
 
       - name: Deploy to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
@@ -40,4 +40,4 @@ jobs:
           cluster: $ECS_CLUSTER
           service: $ECS_SERVICE
           family: $ECS_TASK_FAMILY
-          image: $IMAGE_NAME
+          image: 771838432327.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_NAME
